@@ -15,21 +15,18 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error("DB Connection Error:", err));
 
-/*
-  Schema & Model
-  Data 30 min baad automatically delete ho jayega
+/* Schema & Model
+   Data 30 min baad automatically delete ho jayega
 */
 const ShareSchema = new mongoose.Schema({
   ip: {
     type: String,
     required: true,
   },
-
   text: {
     type: String,
     default: "",
   },
-
   createdAt: {
     type: Date,
     default: Date.now,
@@ -83,8 +80,4 @@ app.post("/save", async (req, res) => {
 });
 
 // Server
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+module.exports = app;
